@@ -5,9 +5,14 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/FirstFragment">
 
+    <action
+        android:id="@+id/action_to_home"
+        app:destination="@id/FirstFragment"
+        app:popUpTo="@+id/nav_graph"/>
+
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="ru.home.mysecrets.FirstFragment"
+        android:name="ru.home.mysecrets.home.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
@@ -17,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="ru.home.mysecrets.SecondFragment"
+        android:name="ru.home.mysecrets.home.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 

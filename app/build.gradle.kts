@@ -56,4 +56,9 @@ dependencies {
     //Hilt
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-compiler:2.48")
+
+
+    //ViewbindingPropertyDelegate
+    implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.9")
+
 }

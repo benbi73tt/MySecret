@@ -1,0 +1,23 @@
+package ru.home.mysecrets.utils
+
+import android.os.Bundle
+import androidx.annotation.IdRes
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.NavDirections
+import androidx.navigation.findNavController
+import ru.home.mysecrets.R
+
+fun Fragment.activityNavController() = requireActivity().findNavController(R.id.nav_host_fragment)
+
+fun NavController.navigateSafely(@IdRes actionId: Int) {
+    currentDestination?.getAction(actionId)?.let { navigate(actionId) }
+}
+
+fun NavController.navigateSafely(directions: NavDirections) {
+    currentDestination?.getAction(directions.actionId)?.let { navigate(directions) }
+}
+
+fun NavController.navigateSafelyWithBundle(@IdRes actionId: Int, bundle: Bundle) {
+    currentDestination?.getAction(actionId)?.let { navigate(actionId, bundle) }
+}

@@ -7,6 +7,32 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <!--REG-->
+    <string name="registration_title">Создание аккаунта</string>
+    <string name="name">Имя</string>
+    <string name="login">Login</string>
+    <string name="password">Пароль</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="registration_button">Создать аккаунт</string>
+    <string name="registration_instruction">Для регистрации в Parent Control заполните следующие поля:</string>
+    <string name="agree">Я соглашаюсь предоставить адрес своей электронной почты для получения персональных маркетинговых предложений</string>
+    <string name="check_field">Пожалуйста, убедитесь, что все поля заполнены</string>
+    <string name="passwords_mismatch">Пароли не совпадают</string>
+    <string name="passwords_easy">Пароль должен состоять не менее чем из 8 символов, включать заглавные буквы, цифры и символы</string>
+    <string name="login_no_unique">Логин должен быть уникальным</string>
+    <string name="auth_success">Вы успешно зарегистрированы</string>
+    <string name="login_success">Вы успешно авторизовались</string>
+    <string name="login_please">Пожалуйста, авторизируйтесь</string>
+    <!--AUTH-->
+    <string name="auth_title">Авторизация</string>
+    <string name="auth_button">Войти</string>
+    <string name="error_response">Возникла ошибка: %s </string>
+    <string name="auth_instruction">Для продолжения, пожалуйста, авторизируйтесь</string>
+
+    <!-- TOAST-->
+    <string name="double_tap">Нажмите второй раз, чтобы закрыть приложение</string>
+    <string name="chpynk">Чпыньк -_- </string>
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

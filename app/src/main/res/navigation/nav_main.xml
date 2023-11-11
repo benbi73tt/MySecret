@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_main">
+
+
+    <action
+        android:id="@+id/action_to_firstScreen"
+        app:destination="@+id/first_fragment"
+        app:popUpTo="@id/nav_main"/>
+
+    <action
+        android:id="@+id/action_to_authorization"
+        app:destination="@+id/authorization_main"
+        app:popUpTo="@id/nav_main"/>
+
+    <fragment
+        android:id="@+id/first_fragment"
+        android:name="ru.home.mysecrets.home.HomeFlowFragment"
+        tools:layout="@layout/fragment_first" />
+
+    <fragment
+        android:id="@+id/authorization_main"
+        android:name="ru.home.mysecrets.auth.SignFlowFragment"
+        tools:layout="@layout/pre_auth"/>
+
+</navigation>

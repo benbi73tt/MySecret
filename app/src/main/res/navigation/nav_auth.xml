@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_auth"
+    app:startDestination="@id/pre_auth">
+
+    <fragment
+        android:id="@+id/pre_auth"
+        tools:layout="@layout/pre_auth"
+        android:name="ru.home.mysecrets.auth.PreAuthFragment"
+        app:popUpTo="@id/pre_auth">
+        <action
+            android:id="@+id/to_auth"
+            app:destination="@+id/authorization"
+            app:popUpTo="@id/pre_auth"/>
+        <action
+            android:id="@+id/to_register"
+            app:destination="@+id/registration"
+            app:popUpTo="@id/pre_auth"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/registration"
+        android:name="ru.home.mysecrets.auth.RegistrationFragment"
+        tools:layout="@layout/registration"
+       />
+
+    <fragment
+        android:id="@+id/authorization"
+        android:name="ru.home.mysecrets.auth.AuthFragment"
+        tools:layout="@layout/authorization"
+        />
+
+
+
+</navigation>
