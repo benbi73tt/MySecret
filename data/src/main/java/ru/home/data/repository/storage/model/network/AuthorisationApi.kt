@@ -1,10 +1,8 @@
 package ru.home.data.repository.storage.model.network
 
-import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.POST
-import retrofit2.http.Path
 import ru.home.data.repository.storage.model.request.RegistrationRequestData
 import ru.home.data.repository.storage.model.response.RegistrationResponseData
 
@@ -24,7 +22,7 @@ interface AuthorisationApi {
     /**
      * Регистрация нового пользователя
      */
-    @POST("auth/users")
+    @POST("auth/users/")
     suspend fun signUp(
         @Body user: RegistrationRequestData
     ): Response<RegistrationResponseData>
