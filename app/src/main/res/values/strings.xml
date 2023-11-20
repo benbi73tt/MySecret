@@ -29,9 +29,15 @@
     <string name="error_response">Возникла ошибка: %s </string>
     <string name="auth_instruction">Для продолжения, пожалуйста, авторизируйтесь</string>
 
+    <!--NETWORK-->
+    <string name="network_dialog_description">Судя по всему, у вас проблемы с мобильным интернетом или Wi-Fi</string>
+
     <!-- TOAST-->
     <string name="double_tap">Нажмите второй раз, чтобы закрыть приложение</string>
     <string name="chpynk">Чпыньк -_- </string>
+
+    <!--BUTTON -->
+    <string name="close">Закрыть</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris

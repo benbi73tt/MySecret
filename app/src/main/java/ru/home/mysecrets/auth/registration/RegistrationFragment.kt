@@ -1,29 +1,44 @@
-package ru.home.mysecrets.auth
+package ru.home.mysecrets.auth.registration
 
-import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
+import ru.home.domain.models.request.RegistrationRequest
 import ru.home.mysecrets.R
+import ru.home.mysecrets.base.BaseScreenFragment
 import ru.home.mysecrets.databinding.RegistrationBinding
 
 const val REGEX_PASSWORD = "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@\$!%*#?~(&)+=^_-]).{8,16}"
 
 @AndroidEntryPoint
-class RegistrationFragment : Fragment(R.layout.registration) {
-    val binding by viewBinding(RegistrationBinding::bind)
-//    private val viewModel: RegistrationViewModel by viewModels()
+class RegistrationFragment :
+    BaseScreenFragment<RegistrationViewModel, RegistrationBinding>(R.layout.registration) {
+    override val binding by viewBinding(RegistrationBinding::bind)
+    override val viewModel: RegistrationViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-
+    override fun setupSubscribers() {
         binding.createAccountButton.setOnClickListener {
             if (checkInputData()) {
-                binding.inputEmail.text.toString().checkLogin()
+                val regRequest = RegistrationRequest(
+                    login = binding.inputEmail.text.toString(),
+                    password = binding.inputPassword.text.toString()
+                )
+                viewModel.signUp(regRequest)
             }
         }
+        viewModel.signUpState.collectUIState(
+            state = {
+                //Логика отображение процесса загрузки
+                // it.setupViewVisibility(groupSignIn, loaderSignIn, true)
+            },
+            onError = {
+                it.setupApiErrors()
+            },
+            onSuccess = {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+            }
+        )
     }
 
     private fun checkInputData(): Boolean {
@@ -67,9 +82,5 @@ class RegistrationFragment : Fragment(R.layout.registration) {
             return false
         }
         return true
-    }
-
-    private fun String.checkLogin() {
-//        viewModel.checkLogin(this)
     }
 }

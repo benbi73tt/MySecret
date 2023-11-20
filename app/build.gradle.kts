@@ -1,64 +1,104 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
+    id(Plugins.AGP.application)
+    kotlin(Plugins.Kotlin.android)
+
+    // Navigation Safe Args
+    id(Plugins.Navigation.safeArgs)
+
+    // Hilt
+    id(Plugins.Hilt.android)
+
+    id(Plugins.KSP.ksp)
 }
 
 android {
-    namespace = "ru.home.mysecrets"
-    compileSdk = 34
+    namespace = Namespaces.app
+    compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
         applicationId = "ru.home.mysecrets"
-        minSdk = 24
-        targetSdk = 34
+        minSdk = AndroidConfig.minSdk
+        targetSdk = AndroidConfig.targetSdk
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
     buildFeatures {
         viewBinding = true
+    }
+
+    buildTypes {
+        getByName(AndroidConfig.release) {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            )
+        }
+
+        getByName(AndroidConfig.debug) {
+            applicationIdSuffix = ".${AndroidConfig.debug}"
+            isDebuggable = true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = Options.compileOptions
+        targetCompatibility = Options.compileOptions
+    }
+
+    kotlinOptions {
+        jvmTarget = Options.kotlinOptions
     }
 }
 
 dependencies {
+    // Modules
+    implementation(project(Modules.domain))
+    implementation(project(Modules.data))
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.10.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // Coroutines
+    implementation(Coroutines.android)
 
+    // Kotlin
+    implementation(Core.core)
 
-    //Hilt
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.48")
+    // Activity
+    implementation(Activity.activity)
 
+    // Fragment
+    implementation(Fragment.fragment)
 
-    //ViewbindingPropertyDelegate
-    implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.9")
+    //Coil
+    implementation(Coil.coil)
 
+    // UI Components
+    implementation(UIComponents.material)
+    implementation(UIComponents.appcompat)
+    implementation(UIComponents.constraintlayout)
+    implementation(UIComponents.viewBindingPropertyDelegate)
+
+    //Livedata
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+
+    // Hilt
+    implementation(Hilt.android)
+    ksp(Hilt.compiler)
+
+    // Navigation
+    implementation(Navigation.fragment)
+    implementation(Navigation.ui)
+
+    // Lifecycle
+    implementation(Lifecycle.viewModel)
+    implementation(Lifecycle.runtime)
+
+    //Tests
+    testImplementation(Test.junit)
+    androidTestImplementation(Test.jUnitExt)
+    androidTestImplementation(Test.espresso)
+
+    implementation("androidx.annotation:annotation:1.7.0")
 }

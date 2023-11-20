@@ -22,7 +22,6 @@ class AuthFragment : Fragment(R.layout.authorization) {
 //            if (checkInputData()) {
 ////                login()
 //                activityNavController().navigateSafely(R.id.action_to_home)
-//
 //            }
             activityNavController().navigateSafely(R.id.action_to_firstScreen)
 

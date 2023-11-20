@@ -22,7 +22,7 @@
 
     <fragment
         android:id="@+id/registration"
-        android:name="ru.home.mysecrets.auth.RegistrationFragment"
+        android:name="ru.home.mysecrets.auth.registration.RegistrationFragment"
         tools:layout="@layout/registration"
        />
 
