@@ -2,12 +2,14 @@ package ru.home.mysecrets.auth.registration
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import ru.home.domain.models.request.RegistrationRequest
 import ru.home.mysecrets.R
 import ru.home.mysecrets.base.BaseScreenFragment
 import ru.home.mysecrets.databinding.RegistrationBinding
+import ru.home.mysecrets.utils.navigateSafely
 
 const val REGEX_PASSWORD = "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[@\$!%*#?~(&)+=^_-]).{8,16}"
 
@@ -34,9 +36,11 @@ class RegistrationFragment :
             },
             onError = {
                 it.setupApiErrors()
+                viewModel.resetState()
             },
             onSuccess = {
                 Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+                findNavController().navigateSafely(R.id.reg_to_auth)
             }
         )
     }

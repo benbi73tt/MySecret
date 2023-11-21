@@ -1,9 +1,13 @@
 package ru.home.data.repository.storage.model.network
 
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.Part
 import ru.home.data.repository.storage.model.request.RegistrationRequestData
+import ru.home.data.repository.storage.model.response.AuthResponseData
 import ru.home.data.repository.storage.model.response.RegistrationResponseData
 
 
@@ -12,12 +16,12 @@ import ru.home.data.repository.storage.model.response.RegistrationResponseData
  */
 interface AuthorisationApi {
 
-//    @Multipart
-//    @POST("api/login")
-//    suspend fun signIn(
-//        @Part("username") login: RequestBody,
-//        @Part("password") password: RequestBody
-//    ): Response<AuthResponseData>
+    @Multipart
+    @POST("auth/jwt/create/")
+    suspend fun signIn(
+        @Part("username") login: RequestBody,
+        @Part("password") password: RequestBody
+    ): Response<AuthResponseData>
 
     /**
      * Регистрация нового пользователя

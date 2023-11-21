@@ -18,6 +18,10 @@ class RegistrationViewModel @Inject constructor(
     val signUpState = _signUpState.asStateFlow()
 
     fun signUp(regRequest: RegistrationRequest) {
-        signUpUseCase(regRequest).collectNetworkRequest(_signUpState) { it.email }
+        signUpUseCase(regRequest).collectNetworkRequest(_signUpState) { it.username }
+    }
+
+    fun resetState() {
+        _signUpState.reset()
     }
 }

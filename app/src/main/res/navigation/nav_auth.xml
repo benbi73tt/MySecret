@@ -24,11 +24,17 @@
         android:id="@+id/registration"
         android:name="ru.home.mysecrets.auth.registration.RegistrationFragment"
         tools:layout="@layout/registration"
-       />
+       >
+        <action
+            android:id="@+id/reg_to_auth"
+            app:destination="@+id/authorization"
+            app:popUpTo="@id/pre_auth"/>
+
+    </fragment>
 
     <fragment
         android:id="@+id/authorization"
-        android:name="ru.home.mysecrets.auth.AuthFragment"
+        android:name="ru.home.mysecrets.auth.authorization.AuthFragment"
         tools:layout="@layout/authorization"
         />
 
