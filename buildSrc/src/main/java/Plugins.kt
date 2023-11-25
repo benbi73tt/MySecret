@@ -22,4 +22,8 @@ object Plugins {
     object Hilt {
         const val android = "com.google.dagger.hilt.android"
     }
+
+    object Proto {
+        const val proto = "com.google.protobuf"
+    }
 }

@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ru.home.data.repository.storage.model.network.AuthorisationApi
-import ru.home.data.repository.storage.model.network.RetrofitInstance
+import ru.home.data.storage.network.AuthorisationApi
+import ru.home.data.storage.network.RetrofitInstance
 import javax.inject.Singleton
 
 @Module

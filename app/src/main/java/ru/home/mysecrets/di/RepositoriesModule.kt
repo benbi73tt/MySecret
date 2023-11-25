@@ -5,6 +5,8 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ru.home.data.repository.AuthorizationRepositoryImpl
+import ru.home.data.storage.network.header.TokenManager
+import ru.home.data.storage.network.header.TokenManagerImpl
 import ru.home.domain.repository.AuthorizationRepository
 
 @Module
@@ -15,14 +17,14 @@ abstract class RepositoriesModule {
 //        tokenRepositoryImpl: TokenRepositoryImpl
 //    ): TokenRepository
 
-//    @Binds
-//    abstract fun bindTokenManager(
-//        tokenManager: TokenManagerImpl
-//    ): TokenManager
+    @Binds
+    abstract fun bindTokenManager(
+        tokenManager: TokenManagerImpl,
+    ): TokenManager
 
     @Binds
     abstract fun bindAuthRepository(
-        authorizationRepositoryImpl: AuthorizationRepositoryImpl
+        authorizationRepositoryImpl: AuthorizationRepositoryImpl,
     ): AuthorizationRepository
 
 //    @Binds

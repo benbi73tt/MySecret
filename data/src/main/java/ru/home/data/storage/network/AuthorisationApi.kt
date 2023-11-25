@@ -1,4 +1,4 @@
-package ru.home.data.repository.storage.model.network
+package ru.home.data.storage.network
 
 import okhttp3.RequestBody
 import retrofit2.Response
@@ -6,9 +6,9 @@ import retrofit2.http.Body
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
-import ru.home.data.repository.storage.model.request.RegistrationRequestData
-import ru.home.data.repository.storage.model.response.AuthResponseData
-import ru.home.data.repository.storage.model.response.RegistrationResponseData
+import ru.home.data.storage.model.request.RegistrationRequestData
+import ru.home.data.storage.model.response.AuthResponseData
+import ru.home.data.storage.model.response.RegistrationResponseData
 
 
 /**

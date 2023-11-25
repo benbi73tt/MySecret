@@ -1,4 +1,4 @@
-package ru.home.data.repository.storage.model
+package ru.home.data.storage.model
 
 /**
  * Модель ошибки с сервера. Запрещено изменять названия полей

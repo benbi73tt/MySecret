@@ -1,6 +1,6 @@
 package ru.home.data.utils
 
-import ru.home.data.repository.storage.model.request.RegistrationRequestData
+import ru.home.data.storage.model.request.RegistrationRequestData
 import ru.home.domain.models.request.RegistrationRequest
 
 fun RegistrationRequest.toRegistrationRequestData() =

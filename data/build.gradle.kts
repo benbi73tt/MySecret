@@ -4,6 +4,8 @@ plugins {
 
     // KSP
     id(Plugins.KSP.ksp)
+
+    id(Plugins.Proto.proto) version "0.9.1"
 }
 
 android {
@@ -40,6 +42,21 @@ android {
 
     buildFeatures {
         buildConfig = true
+    }
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.14.0"
+    }
+    generateProtoTasks {
+        all().forEach {
+            it.builtins {
+                create("java") {
+                    option("lite")
+                }
+            }
+        }
     }
 }
 

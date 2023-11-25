@@ -1,4 +1,4 @@
-package ru.home.data.repository.storage.model.response
+package ru.home.data.storage.model.response
 
 import ru.home.data.utils.DataMapper
 import ru.home.domain.models.response.AuthResponse

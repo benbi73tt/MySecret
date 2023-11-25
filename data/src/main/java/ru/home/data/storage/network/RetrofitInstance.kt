@@ -1,4 +1,4 @@
-package ru.home.data.repository.storage.model.network
+package ru.home.data.storage.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

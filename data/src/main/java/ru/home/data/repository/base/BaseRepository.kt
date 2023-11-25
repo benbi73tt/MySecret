@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import okhttp3.ResponseBody
 import retrofit2.Response
-import ru.home.data.repository.storage.model.ErrorResponse
+import ru.home.data.storage.model.ErrorResponse
 import ru.home.data.utils.DataMapper
 import ru.home.data.utils.fromJson
 import ru.home.domain.domain.core.Either
@@ -94,9 +94,7 @@ abstract class BaseRepository {
                         val error = response.errorBody().toApiError<ErrorResponse>()
                         error?.message ?: ERROR_RARE_CASE
                     } catch (e: Throwable) {
-                        if (!response.message().isNullOrEmpty()) {
-                            response.message()
-                        } else {
+                        response.message().ifEmpty {
                             ERROR_RARE_CASE
                         }
                     }

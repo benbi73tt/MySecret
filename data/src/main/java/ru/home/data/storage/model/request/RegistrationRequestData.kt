@@ -1,4 +1,4 @@
-package ru.home.data.repository.storage.model.request
+package ru.home.data.storage.model.request
 
 /**
  * Данные запроса регистрации
