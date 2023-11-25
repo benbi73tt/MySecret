@@ -1,5 +1,8 @@
 package ru.home.data.repository
 
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import ru.home.domain.models.request.RegistrationRequest
@@ -36,12 +39,7 @@ class AuthorizationRepositoryImpl @Inject constructor(
             authorizationApi.signUp(registrationRequest.toRegistrationRequestData())
         }
 
-//    override suspend fun sendAgreement(): Flow<String> =
-//
-//        flow {
-//            val res = authorizationApi.sendAgree(AGREEMENT_TERMS).code().toString()
-//            Log.d("tagg", "sendAgree response $res")
-//            emit(res)
-//        }.catch {
-//            Log.d("tagg", "sendAgree error $it") }
+    override fun getRefreshToken(): Flow<String> = flow {
+        emit(tokenManager.getRefreshToken().first())
+    }
 }
