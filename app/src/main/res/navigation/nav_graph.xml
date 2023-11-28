@@ -8,7 +8,7 @@
     <action
         android:id="@+id/action_to_home"
         app:destination="@id/FirstFragment"
-        app:popUpTo="@+id/nav_graph"/>
+        app:popUpTo="@+id/nav_graph" />
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_AntyFragment"
+            app:destination="@id/CreateEntryFragment" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -29,5 +32,15 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/CreateEntryFragment"
+        android:name="ru.home.mysecrets.entry.CreateEntryFragment"
+        android:label="@string/entry_fragment_label"
+        tools:layout="@layout/entry_fragment"
+        app:destination="@id/FirstFragment">
+
+
     </fragment>
 </navigation>
