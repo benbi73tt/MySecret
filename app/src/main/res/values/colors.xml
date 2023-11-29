@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- Палитра черно-белая. -->
+    <color name="greyscale_900">#000000</color>
+    <color name="greyscale_800">#1D2023</color>
+    <color name="greyscale_800_alpha_40">#661D2023</color>
+    <color name="greyscale_700">#2C3135</color>
+    <color name="greyscale_600">#434A51</color>
+    <color name="greyscale_600_apla_50">#807E84</color>
+    <color name="greyscale_500">#626C77</color>
+    <color name="greyscale_500_alpha_50">#80626C77</color>
+    <color name="greyscale_400">#969FA8</color>
+    <color name="greyscale_360">#AEB5BD</color>
+    <color name="greyscale_350_alpha_50">#80BCC3D0</color>
+    <color name="greyscale_350">#BCC3D0</color>
+    <color name="greyscale_300">#BBC1C7</color>
+    <color name="greyscale_200">#E2E5EB</color>
+    <color name="greyscale_100">#F2F3F7</color>
+    <color name="greyscale_50">#FAFAFB</color>
+    <color name="greyscale_0">#FFFFFF</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 

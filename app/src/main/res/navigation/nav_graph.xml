@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/CreateEntryFragment"
         android:name="ru.home.mysecrets.entry.CreateEntryFragment"
-        android:label="@string/entry_fragment_label"
+        android:label="@string/create_entry"
         tools:layout="@layout/entry_fragment"
         app:destination="@id/FirstFragment">
 

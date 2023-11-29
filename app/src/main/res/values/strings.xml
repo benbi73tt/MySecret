@@ -8,6 +8,11 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <!--CREATE ENRTY SCREEN    -->
+    <string name="create_entry">Создание новой записи</string>
+    <string name="title_new_entry">Название записи</string>
+    <string name="desc_new_entry">Описание</string>
+
     <!--REG-->
     <string name="registration_title">Создание аккаунта</string>
     <string name="name">Имя</string>

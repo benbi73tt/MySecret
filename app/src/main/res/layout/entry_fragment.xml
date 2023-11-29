@@ -2,19 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:background="@color/greyscale_50">
 
     <!-- Toolbar-->
-    <include android:id="@+id/app_bar"
+    <include
+        android:id="@+id/app_bar"
         layout="@layout/toolbar" />
 
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/title_new_entry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar" />
+
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/back"
+        android:id="@+id/imgDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_baseline_done"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_arrow_backspace" />
+        app:tint="@color/black" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        android:hint="@string/desc_new_entry"
+        android:layout_margin="10dp"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
