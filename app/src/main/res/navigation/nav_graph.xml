@@ -12,9 +12,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="ru.home.mysecrets.home.FirstFragment"
+        android:name="ru.home.mysecrets.home.HomeFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/home_fragment">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"

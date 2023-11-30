@@ -1,4 +1,4 @@
-package ru.home.domain.use_case
+package ru.home.domain.use_case.auth
 
 import ru.home.domain.models.request.AuthRequest
 import ru.home.domain.repository.AuthorizationRepository

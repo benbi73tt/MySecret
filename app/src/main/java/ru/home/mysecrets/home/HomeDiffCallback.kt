@@ -1,7 +1,7 @@
 package ru.home.mysecrets.home
 
 import androidx.recyclerview.widget.DiffUtil
-import ru.home.mysecrets.models.EntryData
+import ru.home.domain.models.request.EntryData
 
 
 class HomeDiffCallback : DiffUtil.ItemCallback<EntryData>() {

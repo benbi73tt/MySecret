@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/first_fragment"
         android:name="ru.home.mysecrets.home.HomeFlowFragment"
-        tools:layout="@layout/fragment_first" />
+        tools:layout="@layout/home_fragment" />
 
     <fragment
         android:id="@+id/authorization_main"

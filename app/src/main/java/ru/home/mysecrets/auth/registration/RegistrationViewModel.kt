@@ -3,7 +3,7 @@ package ru.home.mysecrets.auth.registration
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.asStateFlow
 import ru.home.domain.models.request.RegistrationRequest
-import ru.home.domain.use_case.SignUpUseCase
+import ru.home.domain.use_case.auth.SignUpUseCase
 import ru.home.mysecrets.base.BaseViewModel
 import javax.inject.Inject
 

@@ -53,9 +53,12 @@ abstract class BaseScreenFragment<ViewModel : BaseViewModel, Binding : ViewBindi
     protected open fun setupSubscribers() {
     }
 
-    private fun subscribeNetworkState(){
+    private fun subscribeNetworkState() {
         launchRepeatOnLifecycle(Lifecycle.State.STARTED) {
             Network(requireContext()).networkState.collect { isConnected ->
+                if (!isConnected) {
+                    showNoInternetConnectionDialog()
+                }
                 isNetworkAvailable = isConnected
             }
         }

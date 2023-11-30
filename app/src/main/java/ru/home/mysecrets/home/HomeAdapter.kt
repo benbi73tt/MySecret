@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import ru.home.domain.models.request.EntryData
 import ru.home.mysecrets.databinding.ItemEntryBinding
-import ru.home.mysecrets.models.EntryData
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale

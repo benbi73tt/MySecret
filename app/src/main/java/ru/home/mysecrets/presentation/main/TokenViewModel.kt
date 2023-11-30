@@ -6,7 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import ru.home.domain.use_case.AuthUseCase
+import ru.home.domain.use_case.auth.AuthUseCase
 import ru.home.mysecrets.base.BaseViewModel
 import ru.home.mysecrets.extensions.launchIO
 import ru.home.mysecrets.extensions.withMain
