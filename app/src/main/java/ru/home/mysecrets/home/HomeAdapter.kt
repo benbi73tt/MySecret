@@ -6,9 +6,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.home.domain.models.request.EntryData
 import ru.home.mysecrets.databinding.ItemEntryBinding
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 class HomeAdapter (
     private val clickList: (EntryData) -> Unit,
@@ -44,8 +41,7 @@ class HomeAdapter (
             with(binding) {
                 title.text = item.title
                 desc.text = item.desc
-                dateTime.text = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
-                    .format(Date(System.currentTimeMillis()))
+                dateTime.text = item.date
             }
         }
     }

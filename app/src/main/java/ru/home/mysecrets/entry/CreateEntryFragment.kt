@@ -13,6 +13,9 @@ import ru.home.mysecrets.base.BaseScreenFragment
 import ru.home.mysecrets.databinding.EntryFragmentBinding
 import ru.home.mysecrets.extensions.showToastLong
 import ru.home.mysecrets.utils.ITEM_ENTRY
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @AndroidEntryPoint
 class CreateEntryFragment :
@@ -43,7 +46,9 @@ class CreateEntryFragment :
             viewModel.saveEntry(
                 EntryData(
                     title = binding.title.text.toString(),
-                    desc = binding.description.text.toString()
+                    desc = binding.description.text.toString(),
+                    date = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+                        .format(Date(System.currentTimeMillis()))
                 )
             )
             findNavController().popBackStack()
