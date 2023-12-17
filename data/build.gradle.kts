@@ -84,6 +84,7 @@ dependencies {
     //DataStore
     implementation(DataStore.datastore)
     implementation(DataStore.protobuf)
+    implementation("com.google.crypto.tink:tink:1.11.0")
 
     //Tests
     testImplementation(Test.junit)

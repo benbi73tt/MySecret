@@ -34,7 +34,7 @@ abstract class BaseScreenFragment<ViewModel : BaseViewModel, Binding : ViewBindi
 
     final override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        subscribeNetworkState()
+//        subscribeNetworkState()
         initialize()
         setupListeners()
         setupRequests()

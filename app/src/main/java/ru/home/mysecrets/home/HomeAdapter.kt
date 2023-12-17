@@ -40,7 +40,7 @@ class HomeAdapter (
         fun bind(item: EntryData) {
             with(binding) {
                 title.text = item.title
-                desc.text = item.desc
+                desc.text = String(item.desc, Charsets.UTF_8)
                 dateTime.text = item.date
             }
         }

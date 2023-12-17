@@ -1,33 +1,31 @@
-//package ru.home.mysecrets.encrypt
-//
-//import android.util.Log
-//import com.google.crypto.tink.KeysetHandle
-//import com.google.crypto.tink.config.TinkConfig
-//import com.google.crypto.tink.hybrid.HybridDecryptFactory
-//import com.google.crypto.tink.hybrid.HybridEncryptFactory
-//import com.google.crypto.tink.hybrid.HybridKeyTemplates
-//
-//
-//class Cryptage {
-//
-//    fun main() {
-//        TinkConfig.register()
-//
-//        val privateKeysetHandle = KeysetHandle.generateNew(
-//            HybridKeyTemplates.ECIES_P256_HKDF_HMAC_SHA256_AES128_CTR_HMAC_SHA256
-//        )
-//        val publicKeysetHandle = privateKeysetHandle.publicKeysetHandle
-//
-//        val plaintext = "baeldung"
-//        val contextInfo = "Tink"
-//
-//        val hybridEncrypt = HybridEncryptFactory.getPrimitive(publicKeysetHandle)
-//        val hybridDecrypt = HybridDecryptFactory.getPrimitive(privateKeysetHandle)
-//
-//        val ciphertext = hybridEncrypt.encrypt(plaintext.toByteArray(), contextInfo.toByteArray())
-//        Log.d("!@#", ciphertext.toString())
-//        val plaintextDecrypted = hybridDecrypt.decrypt(ciphertext, contextInfo.toByteArray())
-//        Log.d("!@#", plaintextDecrypted.toString())
-//
-//    }
-//}
+package ru.home.mysecrets.encrypt
+
+import com.google.crypto.tink.KeysetHandle
+import com.google.crypto.tink.hybrid.HybridDecryptFactory
+import com.google.crypto.tink.hybrid.HybridEncryptFactory
+import java.security.GeneralSecurityException
+
+
+class Cryptage {
+
+    val charset = Charsets.UTF_8
+    fun encrypt(publicKeysetHandle: KeysetHandle, text: String, context: String): ByteArray? {
+        val hybridEncrypt = HybridEncryptFactory.getPrimitive(publicKeysetHandle)
+        val ciphertext = hybridEncrypt.encrypt(
+            text.toByteArray(Charsets.UTF_8),
+            context.toByteArray(Charsets.UTF_8)
+        )
+        return ciphertext
+
+    }
+
+    fun decrypt(privateKeysetHandle: KeysetHandle, text: ByteArray, context: String): String {
+        val hybridDecrypt = HybridDecryptFactory.getPrimitive(privateKeysetHandle)
+        val plaintextDecrypted: ByteArray = try {
+            hybridDecrypt.decrypt(text, context.toByteArray())
+        } catch (e: GeneralSecurityException) {
+            "error".toByteArray()
+        }
+        return String(plaintextDecrypted, charset)
+    }
+}

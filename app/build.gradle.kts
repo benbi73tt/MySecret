@@ -100,5 +100,12 @@ dependencies {
     androidTestImplementation(Test.jUnitExt)
     androidTestImplementation(Test.espresso)
 
-    implementation("androidx.annotation:annotation:1.7.0")
+    implementation("androidx.annotation:annotation:1.7.1")
+
+    implementation("com.google.crypto.tink:tink:1.11.0")
+}
+configurations {
+    all {
+        exclude(group = "com.google.protobuf", module = "protobuf-javalite")
+    }
 }

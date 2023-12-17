@@ -22,5 +22,4 @@ class PreAuthFragment: Fragment(R.layout.pre_auth) {
             findNavController().navigateSafely(R.id.to_register)
         }
     }
-
 }

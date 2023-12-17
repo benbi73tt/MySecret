@@ -34,6 +34,19 @@
         app:tint="@color/red"
         app:backgroundTint="@color/lightGreyDark"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/decrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:importantForAccessibility="no"
+        app:backgroundTint="@color/lightGreyDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/delete"
+        app:srcCompat="@drawable/ic_lock_open_24"
+        app:tint="@color/red" />
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgDone"
         android:layout_width="wrap_content"

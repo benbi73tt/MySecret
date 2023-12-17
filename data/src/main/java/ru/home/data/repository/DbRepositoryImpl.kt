@@ -1,10 +1,10 @@
 package ru.home.data.repository
 
-import android.util.Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import ru.home.data.repository.base.BaseRepository
 import ru.home.data.repository.storage.db.dao.EntryDao
+import ru.home.data.storage.model.toEntryData
 import ru.home.data.storage.model.toEntryEntity
 import ru.home.data.storage.model.toListEntryData
 import ru.home.domain.models.request.EntryData
@@ -20,9 +20,9 @@ class DbRepositoryImpl @Inject constructor(
 
     override fun getListEntry(): Flow<List<EntryData>?> =
         entryDao.getListEntry()
-            .map {
-                Log.d("!@#","repo = $it")
-                it?.toListEntryData()
-            }
+            .map { it?.toListEntryData() }
+
+    override fun getEntry(entryId: Int): EntryData =
+        entryDao.getEntry(entryId).toEntryData()
 
 }

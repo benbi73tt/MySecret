@@ -18,4 +18,9 @@ interface DbRepository {
      * Получить список записей
      */
     fun getListEntry(): Flow<List<EntryData>?>
+
+    /**
+     * Получить запись по ID
+     */
+    fun getEntry(entryId: Int): EntryData
 }

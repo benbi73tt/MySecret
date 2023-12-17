@@ -16,4 +16,7 @@ interface EntryDao {
     @Query("SELECT * FROM entry")
     fun getListEntry(): Flow<List<EntryEntity>?>
 
+    @Query("SELECT * FROM entry WHERE :entryId = id")
+    fun getEntry(entryId: Int): EntryEntity
+
 }

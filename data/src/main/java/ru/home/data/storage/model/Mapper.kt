@@ -11,3 +11,6 @@ fun List<EntryEntity>.toListEntryData(): List<EntryData> =
     this.map {
         EntryData(it.id, it.title, it.description, it.date)
     }
+
+fun EntryEntity.toEntryData(): EntryData =
+    EntryData(this.id, this.title, this.description, this.date)

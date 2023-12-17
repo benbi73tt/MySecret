@@ -8,7 +8,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <!--CREATE ENRTY SCREEN    -->
+    <!--CREATE ENTRY SCREEN    -->
     <string name="create_entry">Создание новой записи</string>
     <string name="title_new_entry">Название записи</string>
     <string name="desc_new_entry">Описание</string>
@@ -51,6 +51,7 @@
     <string name="yes">Да</string>
     <string name="cancel">Отмена</string>
     <string name="exit">Выход</string>
+    <string name="confirm">Подтвердить</string>
 
     <!--SEARCH-->
     <string name="search">Поиск</string>
@@ -58,6 +59,12 @@
     <string name="entry_title">Запись</string>
     <string name="description_entry">Описание записи</string>
     <string name="date">Дата</string>
+
+
+    <!--ALERT DIALOG-->
+    <string name="context_info">Код шифрования</string>
+    <string name="description_context_info">Введите ключевое слово или код, по которому шифруется данная запись</string>
+
 
 
 </resources>

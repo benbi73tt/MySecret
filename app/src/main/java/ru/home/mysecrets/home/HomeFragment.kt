@@ -60,7 +60,7 @@ class HomeFragment :
                     R.id.action_FirstFragment_to_AntyFragment,
                     bundleOf(
                         ITEM_ENTRY_TITLE to it.title,
-                        ITEM_ENTRY_DESC to it.desc,
+                        ITEM_ENTRY_DESC to String(it.desc, Charsets.UTF_8),
                         ITEM_ENTRY_ID to it.id,
                     )
                 )
