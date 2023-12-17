@@ -8,6 +8,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.crypto.tink.CleartextKeysetHandle
+import com.google.crypto.tink.JsonKeysetReader
 import com.google.crypto.tink.hybrid.HybridConfig
 import dagger.hilt.android.AndroidEntryPoint
 import ru.home.domain.models.request.EntryData
@@ -19,7 +21,8 @@ import ru.home.mysecrets.extensions.showToastLong
 import ru.home.mysecrets.utils.ITEM_ENTRY_DESC
 import ru.home.mysecrets.utils.ITEM_ENTRY_ID
 import ru.home.mysecrets.utils.ITEM_ENTRY_TITLE
-import ru.home.mysecrets.utils.PRIVATE_KEY
+import java.io.File
+import java.io.FileInputStream
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -50,15 +53,18 @@ class CreateEntryFragment :
                 binding.title.setText(it.getString(ITEM_ENTRY_TITLE))
                 binding.description.setText(it.getString(ITEM_ENTRY_DESC))
             }
+            val file = File(requireContext().filesDir, "keyset.json")
+            val keysetHandle =
+                CleartextKeysetHandle.read(JsonKeysetReader.withInputStream(FileInputStream(file)))
+
             HybridConfig.register()
-            val privateKeysetHandle = PRIVATE_KEY
-            val publicKeysetHandle = privateKeysetHandle.publicKeysetHandle
+            val publicKeysetHandle = keysetHandle.publicKeysetHandle
 
             decrypt.setOnClickListener {
                 showEnterContextInfo { code ->
                     arguments?.getInt(ITEM_ENTRY_ID)?.let { id -> viewModel.decryptDescription(id) }
                     viewModel.decryptEntry.collectSafely {
-                        val decrypt = Cryptage().decrypt(privateKeysetHandle, it, code)
+                        val decrypt = Cryptage().decrypt(keysetHandle, it, code)
                         description.setText(decrypt)
                     }
                 }

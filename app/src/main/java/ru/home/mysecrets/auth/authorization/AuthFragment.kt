@@ -3,6 +3,11 @@ package ru.home.mysecrets.auth.authorization
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.crypto.tink.CleartextKeysetHandle
+import com.google.crypto.tink.JsonKeysetWriter
+import com.google.crypto.tink.KeysetHandle
+import com.google.crypto.tink.hybrid.HybridConfig
+import com.google.crypto.tink.hybrid.HybridKeyTemplates
 import dagger.hilt.android.AndroidEntryPoint
 import ru.home.domain.models.request.AuthRequest
 import ru.home.mysecrets.R
@@ -10,6 +15,8 @@ import ru.home.mysecrets.base.BaseScreenFragment
 import ru.home.mysecrets.databinding.AuthorizationBinding
 import ru.home.mysecrets.utils.activityNavController
 import ru.home.mysecrets.utils.navigateSafely
+import java.io.File
+import java.io.FileOutputStream
 
 @AndroidEntryPoint
 class AuthFragment : BaseScreenFragment<AuthViewModel,AuthorizationBinding>(R.layout.authorization) {
@@ -17,9 +24,16 @@ class AuthFragment : BaseScreenFragment<AuthViewModel,AuthorizationBinding>(R.la
     override val viewModel: AuthViewModel by viewModels()
 
     override fun setupSubscribers()   {
+        HybridConfig.register()
         binding.authorization.setOnClickListener {
             if (checkInputData()) {
-                login()
+                login().also {
+                    val file = File(requireContext().filesDir, "keyset.json")
+                    CleartextKeysetHandle.write(
+                        KeysetHandle.generateNew(HybridKeyTemplates.ECIES_P256_HKDF_HMAC_SHA256_AES128_CTR_HMAC_SHA256),
+                        JsonKeysetWriter.withOutputStream(FileOutputStream(file))
+                    )
+                }
             }
         }
         viewModel.signInState.collectUIState(
