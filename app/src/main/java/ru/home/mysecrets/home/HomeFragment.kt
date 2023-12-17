@@ -14,7 +14,9 @@ import ru.home.domain.models.request.EntryData
 import ru.home.mysecrets.R
 import ru.home.mysecrets.base.BaseScreenFragment
 import ru.home.mysecrets.databinding.FragmentFirstBinding
-import ru.home.mysecrets.utils.ITEM_ENTRY
+import ru.home.mysecrets.utils.ITEM_ENTRY_DESC
+import ru.home.mysecrets.utils.ITEM_ENTRY_ID
+import ru.home.mysecrets.utils.ITEM_ENTRY_TITLE
 import ru.home.mysecrets.utils.NavigationUtils.navigateSafe
 
 @AndroidEntryPoint
@@ -56,7 +58,11 @@ class HomeFragment :
                 navigateSafe(
                     findNavController(),
                     R.id.action_FirstFragment_to_AntyFragment,
-                    bundleOf(ITEM_ENTRY to it.title)
+                    bundleOf(
+                        ITEM_ENTRY_TITLE to it.title,
+                        ITEM_ENTRY_DESC to it.desc,
+                        ITEM_ENTRY_ID to it.id,
+                    )
                 )
             }.apply {
                 recyclerView.adapter = this

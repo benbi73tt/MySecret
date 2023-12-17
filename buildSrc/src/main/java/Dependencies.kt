@@ -61,7 +61,7 @@ object Versions {
 
     //DataStore
     const val datastore = "1.0.0"
-    const val protobuf = "3.18.0"
+    const val protobuf = "3.19.6"
 
     const val moshi = "1.15.0"
 }

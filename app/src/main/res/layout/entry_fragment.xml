@@ -11,16 +11,28 @@
         layout="@layout/toolbar" />
 
 
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/title"
-        android:layout_width="match_parent"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgClose"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="@string/title_new_entry"
+        android:src="@drawable/ic_baseline_close"
+        app:layout_constraintEnd_toStartOf="@id/imgDone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/black" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/app_bar" />
+        app:srcCompat="@drawable/ic_baseline_delete"
+        app:tint="@color/red"
+        app:backgroundTint="@color/lightGreyDark"/>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgDone"
@@ -31,6 +43,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/black" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="@string/title_new_entry"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/description"

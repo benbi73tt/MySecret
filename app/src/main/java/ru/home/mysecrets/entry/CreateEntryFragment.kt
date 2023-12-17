@@ -1,7 +1,7 @@
 package ru.home.mysecrets.entry
 
 
-import android.util.Log
+import android.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -12,7 +12,9 @@ import ru.home.mysecrets.R
 import ru.home.mysecrets.base.BaseScreenFragment
 import ru.home.mysecrets.databinding.EntryFragmentBinding
 import ru.home.mysecrets.extensions.showToastLong
-import ru.home.mysecrets.utils.ITEM_ENTRY
+import ru.home.mysecrets.utils.ITEM_ENTRY_DESC
+import ru.home.mysecrets.utils.ITEM_ENTRY_ID
+import ru.home.mysecrets.utils.ITEM_ENTRY_TITLE
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -37,21 +39,56 @@ class CreateEntryFragment :
 
     override fun setupSubscribers() {
         super.setupSubscribers()
-        binding.appBar.topAppBar.setupWithNavController(findNavController())
-        arguments?.let {
-            Log.d("!@#", "${it.getString(ITEM_ENTRY)}")
-        }
+        with(binding) {
 
-        binding.imgDone.setOnClickListener {
-            viewModel.saveEntry(
-                EntryData(
-                    title = binding.title.text.toString(),
-                    desc = binding.description.text.toString(),
-                    date = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
-                        .format(Date(System.currentTimeMillis()))
-                )
-            )
-            findNavController().popBackStack()
+            appBar.topAppBar.setupWithNavController(findNavController())
+            arguments?.let {
+                binding.title.setText(it.getString(ITEM_ENTRY_TITLE))
+                binding.description.setText(it.getString(ITEM_ENTRY_DESC))
+            }
+
+            imgClose.setOnClickListener {
+                showAutoStartDialog {
+                    findNavController().popBackStack()
+                }
+            }
+            delete.setOnClickListener { findNavController().popBackStack() }
+            imgDone.setOnClickListener {
+                if (!title.text.isNullOrBlank() && !description.text.isNullOrBlank()) {
+                    viewModel.saveEntry(
+                        EntryData(
+                            id = arguments?.getInt(ITEM_ENTRY_ID) ?: 0,
+                            title = title.text.toString(),
+                            desc = description.text.toString(),
+                            date = SimpleDateFormat("dd.MM.yyyy", Locale.getDefault())
+                                .format(Date(System.currentTimeMillis()))
+                        )
+                    )
+//                    Cryptage().main()
+                    findNavController().popBackStack()
+                } else {
+                    showToastLong(R.string.emty_title_or_desc)
+                }
+            }
+        }
+    }
+
+    /**
+     * Отобразить диалог с сообщением
+     */
+    //TODO Вынести в отдельный класс Utits
+    private fun showAutoStartDialog(invoke: () -> Unit) {
+        AlertDialog.Builder(requireContext()).apply {
+            setTitle(getString(R.string.exit))
+            setMessage(getString(R.string.exit_without_save))
+            setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+                invoke()
+                dialog.cancel()
+            }
+            setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
+                dialog.cancel()
+            }
+            show()
         }
     }
 }

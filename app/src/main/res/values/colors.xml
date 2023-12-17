@@ -32,4 +32,7 @@
     <color name="secondaryDark">#171c26</color>
 
     <color name="lightGreyDark">#3e434e</color>
+
+    <color name="red">#FF1100</color>
+
 </resources>

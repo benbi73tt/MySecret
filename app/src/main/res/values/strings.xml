@@ -12,6 +12,8 @@
     <string name="create_entry">Создание новой записи</string>
     <string name="title_new_entry">Название записи</string>
     <string name="desc_new_entry">Описание</string>
+    <string name="emty_title_or_desc">Недопустимое описание или оглавление</string>
+    <string name="exit_without_save">Вы уверены что хотите выйти без сохранения?</string>
 
     <!--REG-->
     <string name="registration_title">Создание аккаунта</string>
@@ -46,6 +48,9 @@
 
     <!--BUTTON -->
     <string name="close">Закрыть</string>
+    <string name="yes">Да</string>
+    <string name="cancel">Отмена</string>
+    <string name="exit">Выход</string>
 
     <!--SEARCH-->
     <string name="search">Поиск</string>
@@ -53,4 +58,6 @@
     <string name="entry_title">Запись</string>
     <string name="description_entry">Описание записи</string>
     <string name="date">Дата</string>
+
+
 </resources>
