@@ -22,7 +22,7 @@
     <string name="password">Пароль</string>
     <string name="repeat_password">Повторите пароль</string>
     <string name="registration_button">Создать аккаунт</string>
-    <string name="registration_instruction">Для регистрации в Parent Control заполните следующие поля:</string>
+    <string name="registration_instruction">Для регистрации в приложении заполните следующие поля:</string>
     <string name="agree">Настоящим подтверждаю, что ознакомлен и согласен с условиями политики конфиденциальности. \n <u>Узнать больше</u></string>
     <string name="check_field">Пожалуйста, убедитесь, что все поля заполнены</string>
     <string name="passwords_mismatch">Пароли не совпадают</string>

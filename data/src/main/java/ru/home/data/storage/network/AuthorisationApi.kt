@@ -31,11 +31,6 @@ interface AuthorisationApi {
         @Body user: RegistrationRequestData
     ): Response<RegistrationResponseData>
 
-//    @GET("api/token/refresh")
-//    suspend fun refreshToken(
-//        @Header("Authorization") token: String
-//    ): AuthResponseData
-
     companion object {
         fun create(retrofit: RetrofitInstance): AuthorisationApi {
             return retrofit.invoke().create(AuthorisationApi::class.java)
